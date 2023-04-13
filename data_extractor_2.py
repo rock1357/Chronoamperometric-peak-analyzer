@@ -31,10 +31,10 @@ print('-the file-name of your noise registration is:',filename_noise,'\n')
 
 'step 1.0: asking for the file-name of the NPs experiment and for the recording of the noise trace coming from the electrode'
     
-filename_acquisition=str(input('A) put the file name of the acqusition: ')) 
-    #filename_noise=str(input('B) put the file-name of the noise acquisition: '))
-    #delimiter_=str(input('C) insert the kind of delimiter between time and current data columns in the data file ( , or ; ) : '))
-    #c=int(input('E) select how many rows to skip in your csv file before float numbers of the chronoameprometric \n   registration start: '));
+#filename_acquisition=str(input('A) put the file name of the acqusition: ')) 
+#filename_noise=str(input('B) put the file-name of the noise acquisition: '))
+#delimiter_=str(input('C) insert the kind of delimiter between time and current data columns in the data file ( , or ; ) : '))
+#c=int(input('E) select how many rows to skip in your csv file before float numbers of the chronoameprometric \n   registration start: '));
 
 
 
