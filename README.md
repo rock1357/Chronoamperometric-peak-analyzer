@@ -14,7 +14,7 @@ At the and there is the representation of a data acquier (as the lock in amplfie
 
 # How does it works?
 
-Before to play the program we must have written: 
+Before to play the program we must have filled some of the parameters that will be used as values to make the analysis: 
 
 a) In the data_extractor.py module you have to put the data-file in order to extract the chronoamperometric data and initialize some parameters as: 
 
