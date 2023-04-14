@@ -79,8 +79,7 @@ step a):
 
 step b):
 
-<img width="693" alt="image" src="https://user-images.githubusercontent.com/61994200/232002909-5f8ada46-8d54-4cc7-9b14-3120c3e57dc1.png">
-
+<img width="217" alt="image" src="https://user-images.githubusercontent.com/61994200/232100078-d6b58ce6-c595-4efe-8c7c-bb25861dc810.png">
 <img width="563" alt="image" src="https://user-images.githubusercontent.com/61994200/232002494-e423187c-623e-4a63-bc8b-0e5f8e73f6b2.png">
 
 # example
