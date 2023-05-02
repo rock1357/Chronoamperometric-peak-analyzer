@@ -1,17 +1,15 @@
 # Chronoamperometric-peak-analyzer
 # what is it?
-This program is made in order to select and integrate the peaks present in a chronoamperometric time trace; 
-the chronoamperometric time trace is a trace that show the current peaks related with the impact of nanoparticles (in water solution) against the working electrode. 
-The oxidation/reduction of such NPs, as consequence of the impact, is stimulated by the presence of: a) chathalist molecules b) bias use c) Stimulation by light (if in the case of organic nanoparticles). 
-Then the goal is to make a software able to extract the peaks that are more probable to be realted to NPs discharge processes and not to the background noise.
-For this aim is advisable to relize at least two chronoamperometric recording in which we measure just the background noise (coming from the solution itself) in the first registration, and the nanoparticle impacts in the second (after having injected them in the solution).
-Nevertheless the noise measurement is not necessary for the analyzer.
-If the noise time trace is taken, the analyzer will use this information to set a level below which there is a (>60%) probability that those peaks comes from sthocastic fluctuations at microscopic level: it calculates the standard deviation of the noise.
+This programme is used to select and integrate the peak values present in a chronoamperometric time trace;
+the chronoamperometric time trace is a trace showing the current peaks associated with the impact of nanoparticles (in water solution) on the working electrode.
+The oxidation/reduction of such NPs, as a result of the impact, is stimulated by the presence of: a) Chathalist molecules b) Bias voltage c) Stimulation by light (in the case of organic nanoparticles).
+The aim is then to develop software capable of extracting the peaks that are more likely to be due to the discharge processes of the NPs and not to the background noise.
+For this purpose, it is advisable to make at least two chronoamperometric recordings, measuring only the background noise (coming from the solution itself) in the first recording and the nanoparticle impacts (after they have been injected into the solution) in the second recording.
+Nevertheless, the noise measurement is not necessary for the analyser.
+When the time trace of the noise is recorded, the analyser uses this information to set a value below which there is a (> 60%) probability that these spikes originate from sthokastic fluctuations at the microscopic level: It calculates the standard deviation of the noise.
 
-Below there is an example of the circuit with which i was able to obtain the chronoamperometric trace.
-We can use a two electrode set-up: only working and reference ones are present here; This circuit  can be approximated as a capacitance in parallel to a resistor. Next to this latter ther can be an amplifier of the signal (in this case a femto-current aplifier DPLCA-200 model), it is enclosed in the second
-square.
-
+Below is an example of the circuit I used to obtain the chronoamperometric curve.
+We can use a setup with two electrodes: only the working and reference electrodes are present here; this circuit can be approximated as a capacitance in parallel with a resistor. A signal amplifier can be connected to the latter (in this case a femtocurrent amplifier DPLCA-200), which is enclosed in the second square.
 At the and there is the representation of a data acquier (as the lock in amplfier or an analog digilent data reciever).
 
 
@@ -47,7 +45,7 @@ b.3) The k factor (for positive or negative analysis) is a parameter that will b
 
 b.4) The time constraint for peak selection. b.5) The desire if we want to scan the positive (V>0 side) or the negative (V<0) part of the trace.
 
-c) Negative/postive_scanner.py is the third module: here we don't have to select any parameter because they were almost all already written in the previous module. This module will simply apply an alghoritm where the trace is scanned, starting from the first value of V>0 up to the last value of V>0 of the whole trace. Suppose we selected to scan the negative part of the trace. When a value V<noise (noise is negative here because k_factor is set to be <0) is found, the algorithm come back to the first preceeding value V>0 and here set the starting point of that peak. Done that, it go forward up to the second V>0 ( at the right of the min value of the peak) completing the peak delimitation. In the middle all the peak points are saved in a new array. So the peaks are selected in height in this module! After the whole selected trace was scanned, the current module will invoce the negative_peak_levelling() method.
+c) Negative/postive_scanner.py is the third module: here we don't need to select any parameters, as they have almost all already been written in the previous module. This module simply applies an algorithm that scans the curve from the first value of V > 0 to the last value of V > 0 of the entire curve. Let's say we want to scan the negative part of the trace. If a value of V0=0 is reached, it put here the starting point of this peak. Then it continues to the second V =0 (to the right of the minimum value of the peak), which completes the peak delimitation. In the middle, all peak points are stored in a new array. The peaks are thus selected in height in this module! After the entire selected curve has been scanned, the current module calls the method negative_peak_levelling().
 
 d) peak_levelling.py is the fourth module: here the peak are selected in time width and are levelled with same base level: 1e-30 will be the two minima of each extracted peak (not zero because zeros are the eliminated peaks and they become nan in order to not be plotted) 
 
@@ -64,11 +62,11 @@ NB) between one module and the other will be activated the plot_shower() method 
 
 
 # main features
-With this tool is possible:
-1) to use the noise time trace in order to set a maximum level of the noise peaks. This is made by calculating the standard deviation of the noise distribution.
-2) to extract certain specific peaks belogning to a positive or negative half of a current (or voltage) vs time or chronoamperometric measuerement; we can select them by exploiting the height constraint and the size constraint (time distance between the two minima of the peaks).
-3) to know how much charge is contained in the nanoparticle discharges: an integrator under the peaks is implemented.
-4) To plot the hystogram of the released charge by nanoparticles distribution.
+With this tool it is possible:
+1) use the noise time trace to set a maximum level of noise peaks. This is done by calculating the standard deviation of the noise distribution.
+2) To extract certain peaks belonging to a positive or negative half of a current (or voltage) time or chronoamperometric measurement; we can select them by using the height constraint and the magnitude constraint (time distance between the two minima of the peaks).
+3) To know how much charge is contained in the nanoparticle discharges, an integrator is implemented among the peaks.
+4) Plot the hystogram of the released charge through the distribution of the nanoparticles.
 
 # example
 
